@@ -1,3 +1,36 @@
+#Docker
+## Сборка образа
+
+```bash
+docker build -t sema-crud-image .
+```
+
+## Запуск контейнера
+
+```bash
+docker run -d -p 8000:8000 \
+  --name sema-crud-container \
+  -e SECRET_KEY='your-secret-key' \
+  -e DEBUG='True' \
+  -e ALLOWED_HOSTS='localhost,127.0.0.1' \
+  sema-crud-image
+```
+
+## Провертиь что все работает
+
+```bash
+docker ps
+```
+
+## Проверка API
+
+```bash
+# Список продуктов
+curl http://localhost:8000/api/v1/products/
+
+# Список складов
+curl http://localhost:8000/api/v1/stocks/
+```
 # Склады и товары
 
 ## Техническая задача: реализовать CRUD-логику для продуктов и складов, используя Django Rest Framework.
